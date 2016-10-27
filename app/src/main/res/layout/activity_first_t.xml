@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_first_t"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="squaring.vitrox.olxpj.FirstActivity">
+
+    <RelativeLayout
+        android:id="@+id/first_content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:text="@string/welcome_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/welcome_title"
+            android:layout_alignParentTop="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:text="@string/button_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/continue_button"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/placeholder"
+            android:id="@+id/mostviewedImage"
+            android:contentDescription=""
+            android:layout_above="@id/continue_button"
+            android:layout_below="@+id/welcome_title"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="@string/categoryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/firstcatTitle"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:background="@android:color/background_light"
+            android:layout_below="@+id/welcome_title"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="13dp"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="center" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

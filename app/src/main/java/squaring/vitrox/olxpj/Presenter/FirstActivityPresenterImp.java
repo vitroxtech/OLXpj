@@ -28,14 +28,25 @@ public class FirstActivityPresenterImp implements FirstActivityPresenter {
         this.view = v;
     }
 
-    /* get if first time from shared preferences */
+    /* get if first time from shared preferences and if not first time but neither a category clicked once*/
     @Override
     public void checkIfFirstTime() {
+        boolean checkall=false;
         SharedPrefHelper prefHelper = new SharedPrefHelper(mContext);
-        if (prefHelper.isFirstTime()) {
-            fillFirstTimeDb();
-        }
-        view.isfirstTime(prefHelper.isFirstTime());
+            if (prefHelper.isFirstTime()) {
+                checkall=true;
+                fillFirstTimeDb();
+            }else
+            {
+                DatabaseHandler DBH = DatabaseHandler.getdatabaseHandler(mContext);
+                Category ct = DBH.getMostViewedCategory();
+                if(Integer.parseInt(ct.getClicks())==0)
+                {
+                    checkall=true;
+                }
+            }
+
+        view.isfirstTime(checkall);
     }
 
     /* Get a random image for the category wich is the most clicked */

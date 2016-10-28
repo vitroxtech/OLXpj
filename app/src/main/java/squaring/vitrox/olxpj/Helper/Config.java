@@ -13,6 +13,7 @@ public class Config {
     public static String SELECTED_CATEGORY = "Scategory";
     public static String SELECTED_IMAGE = "SimageUrl";
     static String FIRST_TIME = "firstTime";
+    static String ONETIME_CLICKED="oneclick";
     static String SHARED_PREFERENCES_AREA = "first_time";
 
 

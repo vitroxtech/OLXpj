@@ -96,7 +96,7 @@ public class FirstActivity extends AppCompatActivity implements FirstActivityPre
         i.putExtra(Config.SELECTED_CATEGORY,CategoryName);
         startActivity(i);
     }
-    
+
     /*
    error and handler for glide
    */

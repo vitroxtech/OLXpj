@@ -10,6 +10,9 @@ then for each selected category is possible to see 10 pics related to that categ
 
 the all the click count is used with a db sqlite using the native android SQLiteOpenHelper 
 
+for testing i use a simple unit testing for one model object because make unit test for the presenters is not possible because actually almost all the methods comprehend using a very complex environment mocking a creating the testing mocks for database and restcalls 
+in that case is more useful using instrumentated testing which is not recquired 
+
 ARCHITECTURE: MVP (MVVM LIKE)
 
 used only third party libraries:

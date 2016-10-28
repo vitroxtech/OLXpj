@@ -17,6 +17,7 @@
         android:id="@+id/detailedImage"
         android:contentDescription=""
         android:layout_above="@id/continue_button"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:scaleType="centerCrop" />
 
 </RelativeLayout>

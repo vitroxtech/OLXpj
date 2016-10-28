@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 public class SharedPrefHelper {
 
     private Boolean firstTime = null;
-    private Boolean isOneCategoryClicked=null;
     private Context mContext;
 
     public SharedPrefHelper(Context context) {
@@ -27,15 +26,6 @@ public class SharedPrefHelper {
             }
         }
         return firstTime;
-    }
-
-    public boolean isOneCategoryClicked() {
-
-        if (isOneCategoryClicked == null) {
-            SharedPreferences mPreferences = mContext.getSharedPreferences(Config.SHARED_PREFERENCES_AREA, Context.MODE_PRIVATE);
-            isOneCategoryClicked = mPreferences.getBoolean(Config.ONETIME_CLICKED, false);
-        }
-        return isOneCategoryClicked;
     }
 
 }

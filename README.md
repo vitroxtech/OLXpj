@@ -10,7 +10,7 @@ then for each selected category is possible to see 10 pics related to that categ
 
 the all the click count is used with a db sqlite using the native android SQLiteOpenHelper 
 
-ARCHITECTURE: MVP (MVVVM LIKE)
+ARCHITECTURE: MVP (MVVM LIKE)
 
 used only third party libraries:
 -retrofit (api rest calls)

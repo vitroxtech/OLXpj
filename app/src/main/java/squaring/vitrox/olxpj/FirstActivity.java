@@ -16,18 +16,18 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 
+import squaring.vitrox.olxpj.Helper.Config;
 import squaring.vitrox.olxpj.Model.Category;
 import squaring.vitrox.olxpj.Presenter.FirstActivityPresenter;
 import squaring.vitrox.olxpj.Presenter.FirstActivityPresenterImp;
 
 public class FirstActivity extends AppCompatActivity implements FirstActivityPresenter.view, View.OnClickListener {
 
-    FirstActivityPresenter presenter;
-    ImageView mainCategoryImage;
-    Button gotoCatButton;
-    RelativeLayout mlayout;
-    TextView categorynameTextVew;
-
+    private FirstActivityPresenter presenter;
+    private ImageView mainCategoryImage;
+    private Button gotoCatButton;
+    private RelativeLayout mlayout;
+    private TextView categorynameTextVew;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +43,9 @@ public class FirstActivity extends AppCompatActivity implements FirstActivityPre
         presenter.checkIfFirstTime();
     }
 
+    /*
+    get if is the firstTime to open the app then i decide if go to MainActivity or remain here
+    */
     @Override
     public void isfirstTime(Boolean b) {
         if (b) {
@@ -54,6 +57,9 @@ public class FirstActivity extends AppCompatActivity implements FirstActivityPre
         }
     }
 
+    /*
+    get the mostviewed category from db then show
+    */
     @Override
     public void mostViewedCategory(Category c) {
         categorynameTextVew.setText(c.getCategoryname());
@@ -66,19 +72,34 @@ public class FirstActivity extends AppCompatActivity implements FirstActivityPre
 
     }
 
+    /*
+    one handler for two views, in case of image go to
+    */
+
     @Override
     public void onClick(View v) {
 
         if (v instanceof ImageView) {
-            Intent i = new Intent(this, ProductsActivity.class);
-            startActivity(i);
+          presenter.onImageClicked();
 
         } else if (v instanceof Button) {
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
         }
     }
-
+    /*
+       I add to db also the click on this category on this activity
+       */
+    @Override
+    public void goToProducts(String CategoryName) {
+        Intent i = new Intent(this, ProductsActivity.class);
+        i.putExtra(Config.SELECTED_CATEGORY,CategoryName);
+        startActivity(i);
+    }
+    
+    /*
+   error and handler for glide
+   */
     private RequestListener<String, GlideDrawable> requestListener = new RequestListener<String, GlideDrawable>() {
         @Override
         public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {

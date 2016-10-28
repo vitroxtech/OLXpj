@@ -12,6 +12,8 @@ public class SharedPrefHelper {
         this.mContext = context;
     }
 
+    /* First time use is saved in shared preferences */
+
     public boolean isFirstTime() {
 
         if (firstTime == null) {

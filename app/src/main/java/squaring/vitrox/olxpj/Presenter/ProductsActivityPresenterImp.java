@@ -55,7 +55,7 @@ public class ProductsActivityPresenterImp implements ProductsActivityPresenter {
                         public void onResponse(Response<FlickrResponse> response, Retrofit retrofit) {
                             perpage = response.body().getPhotos().getPerpage();
                             pages = response.body().getPhotos().getPages();
-                            Photo myphoto = response.body().getPhotos().getPhoto().get(rd.getRandomIntInRange(1, perpage-1));
+                            Photo myphoto = response.body().getPhotos().getPhoto().get(rd.getRandomIntInRange(1, perpage - 1));
                             String st = Config.getUrl(myphoto);
                             view.onProductReturn(st);
                         }
@@ -78,11 +78,5 @@ public class ProductsActivityPresenterImp implements ProductsActivityPresenter {
 
 
     }
-
-    @Override
-    public void onItemClick(String url) {
-
-    }
-
 
 }

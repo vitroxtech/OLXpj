@@ -2,7 +2,6 @@ package squaring.vitrox.olxpj.Adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +26,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     private Context mContext;
     private final OnItemClickListener listener;
     private int max;
+
     public interface OnItemClickListener {
         void onItemClick(Category item);
     }
@@ -79,10 +79,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
     public void addData(Category data) {
         mDataSet.add(data);
-        if (mDataSet.size()==6)
-        {
-            orderDataset();
-        }
         notifyDataSetChanged();
     }
 
@@ -92,8 +88,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     }
 
 
-    public void orderDataset()
-    {
+    public List<Category> getDataset() {
+        return mDataSet;
 
     }
 

@@ -30,6 +30,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+    /* One instance for all the app then is always the same for all */
     public static synchronized DatabaseHandler getdatabaseHandler(Context context) {
         if (instance == null)
             instance = new DatabaseHandler(context);
@@ -93,7 +94,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public List<Category> getAllCategories() {
         List<Category> categoryList = new ArrayList<>();
         // Select All Query
-        String selectQuery = "SELECT  * FROM " + TABLE_TRACKING+" ORDER BY "+KEY_CLICKS_No+" DESC";
+        String selectQuery = "SELECT  * FROM " + TABLE_TRACKING + " ORDER BY " + KEY_CLICKS_No + " DESC";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         // looping through all rows and adding to list
@@ -125,13 +126,5 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 
     }
-
-    public void deleteCategory(Category contact) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_TRACKING, KEY_ID + " = ?",
-                new String[]{contact.getId()});
-        db.close();
-    }
-
 
 }

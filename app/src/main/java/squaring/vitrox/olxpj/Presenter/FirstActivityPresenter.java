@@ -1,5 +1,7 @@
 package squaring.vitrox.olxpj.Presenter;
 
+import android.view.View;
+
 import squaring.vitrox.olxpj.Model.Category;
 
 /**
@@ -10,11 +12,12 @@ public interface FirstActivityPresenter {
 
     void checkIfFirstTime();
     void getMostClickedCat();
-
+    void onImageClicked();
      interface view
      {
          void isfirstTime(Boolean b);
          void mostViewedCategory(Category c);
+         void goToProducts(String CategoryName);
      }
 
 }

@@ -19,7 +19,12 @@ public class ApiClient {
 
     private static final String BASE_URL = "https://api.flickr.com/services/";
     private static Retrofit retrofit = null;
+    private static final String NOJSONCB = "1";
+    private static final String JSON = "json";
 
+    /*
+   RETROFIT CLIENT with already setup fix parameters
+   */
     public static Retrofit getClient() {
 
         OkHttpClient httpClient =
@@ -30,9 +35,9 @@ public class ApiClient {
                 Request original = chain.request();
                 HttpUrl originalHttpUrl = original.httpUrl();
                 HttpUrl url = originalHttpUrl.newBuilder()
-                        .addQueryParameter("nojsoncallback", "1")
-                        .addQueryParameter("format","json")
-                        .addQueryParameter("api_key",Config.API_KEY)
+                        .addQueryParameter("nojsoncallback", NOJSONCB)
+                        .addQueryParameter("format", JSON)
+                        .addQueryParameter("api_key", Config.API_KEY)
                         .build();
 
                 // Request customization: add request headers
@@ -46,7 +51,7 @@ public class ApiClient {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, false);
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        if (retrofit==null) {
+        if (retrofit == null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(JacksonConverterFactory.create(mapper))

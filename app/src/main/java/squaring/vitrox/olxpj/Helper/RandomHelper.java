@@ -8,12 +8,13 @@ import java.util.Random;
 
 public class RandomHelper {
 
-    Random mRandom= new Random();
+    Random mRandom = new Random();
 
+    /* Random generator in range*/
     public int getRandomIntInRange(int min, int max) {
-        mRandom= new Random();
-        int solve= mRandom.nextInt((max - min) + min) + min;
-        System.out.println("random: "+solve);
+        mRandom = new Random();
+        int solve = mRandom.nextInt((max - min) + min) + min;
+        System.out.println("random: " + solve);
         return solve;
     }
 }

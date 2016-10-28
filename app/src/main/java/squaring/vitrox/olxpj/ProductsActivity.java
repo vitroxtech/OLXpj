@@ -34,21 +34,7 @@ public class ProductsActivity extends AppCompatActivity implements ProductsActiv
         mRecyclerView.setAdapter(mAdapter);
         mPresenter = new ProductsActivityPresenterImp(this, ProductsActivity.this);
         mPresenter.onLoad(selectedCategory);
-
     }
-
-    private ProductGridAdapter.OnItemClickListener ItemClicked = new ProductGridAdapter.OnItemClickListener() {
-        @Override
-        public void onItemClick(String url, ImageView imageView) {
-            Intent i= new Intent(getApplicationContext(),ProductDetailActivity.class);
-            i.putExtra(Config.SELECTED_IMAGE,url);
-
-            ActivityOptionsCompat options = ActivityOptionsCompat.
-                    makeSceneTransitionAnimation(ProductsActivity.this,
-                            imageView, "poster");
-            startActivity(i,options.toBundle());
-        }
-    };
 
     @Override
     public void onProductReturn(String url) {
@@ -61,4 +47,20 @@ public class ProductsActivity extends AppCompatActivity implements ProductsActiv
         Intent setIntent = new Intent(this, MainActivity.class);
         startActivity(setIntent);
     }
+
+
+    /* Handle the click and go forward to show the pic */
+    private ProductGridAdapter.OnItemClickListener ItemClicked = new ProductGridAdapter.OnItemClickListener() {
+        @Override
+        public void onItemClick(String url, ImageView imageView) {
+            Intent i = new Intent(getApplicationContext(), ProductDetailActivity.class);
+            i.putExtra(Config.SELECTED_IMAGE, url);
+
+            ActivityOptionsCompat options = ActivityOptionsCompat.
+                    makeSceneTransitionAnimation(ProductsActivity.this,
+                            imageView, "image");
+            startActivity(i, options.toBundle());
+        }
+    };
+
 }

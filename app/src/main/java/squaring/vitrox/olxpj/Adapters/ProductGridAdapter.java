@@ -47,7 +47,7 @@ public class ProductGridAdapter extends RecyclerView.Adapter<ProductGridAdapter.
 
         public void bind(final String urlImage, final ProductGridAdapter.OnItemClickListener listener) {
             Glide.with(mContext).load(urlImage)
-                    .diskCacheStrategy( DiskCacheStrategy.NONE)
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .listener(requestListener)
                     .placeholder(R.drawable.placeholder).error(R.drawable.placeholder)
                     .centerCrop().into(mImageView);
@@ -55,7 +55,7 @@ public class ProductGridAdapter extends RecyclerView.Adapter<ProductGridAdapter.
 
                 @Override
                 public void onClick(View v) {
-                    listener.onItemClick(urlImage,mImageView);
+                    listener.onItemClick(urlImage, mImageView);
                 }
             });
 

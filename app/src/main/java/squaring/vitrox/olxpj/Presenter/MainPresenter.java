@@ -1,5 +1,7 @@
 package squaring.vitrox.olxpj.Presenter;
 
+import java.util.List;
+
 import squaring.vitrox.olxpj.Adapters.CategoryAdapter;
 import squaring.vitrox.olxpj.Model.Category;
 
@@ -16,7 +18,7 @@ public interface MainPresenter {
     interface View {
         void clickSaved(String categoryName);
 
-        void refresh(Category photos);
+        void refresh(Category photos, List<Category> categoriesNow);
 
     }
 

@@ -8,8 +8,6 @@ public interface ProductsActivityPresenter {
 
     void onLoad(String selectedCategory);
 
-    void onItemClick(String url);
-
     interface view {
 
         void onProductReturn(String urlToLoad);

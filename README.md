@@ -10,8 +10,8 @@ then for each selected category is possible to see 10 pics related to that categ
 
 the all the click count is used with a db sqlite using the native android SQLiteOpenHelper 
 
-for testing i use a simple unit testing for one model object because make unit test for the presenters is not possible because actually almost all the methods comprehend using a very complex environment mocking a creating the testing mocks for database and restcalls 
-in that case is more useful using instrumentated testing which is not recquired 
+for testing i use a simple unit testing for one model object because make unit test for the presenters is not possible because actually almost all the methods comprehend using a very complex environment mocking a creating the testing mocks for database(not recomended) and restcalls 
+So isolated and testable i found only the data objects but it makes not so much sense and usually in best practices is not recommended do it, but is possible adding a validate method on the class for some data objects that HAVE STRICTLY RECQUIRED some properties 
 
 ARCHITECTURE: MVP (MVVM LIKE)
 
